@@ -1,5 +1,7 @@
-require "audio_hacker/version"
+require 'audio_hacker/album'
+require 'audio_hacker/dsl'
+require 'audio_hacker/track'
+require 'audio_hacker/version'
 
 module AudioHacker
-  # Your code goes here...
 end
