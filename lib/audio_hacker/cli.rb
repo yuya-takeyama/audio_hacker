@@ -7,7 +7,6 @@ module AudioHacker
       raise 'No DSL files are specified' if files.size == 0
 
       config = Config.load_yml(options[:config])
-      p config
       picker = FilePicker.new
 
       files.each do |file|
@@ -20,6 +19,8 @@ module AudioHacker
           end
         end
       end
+
+      puts "Finished!"
     end
   end
 end
