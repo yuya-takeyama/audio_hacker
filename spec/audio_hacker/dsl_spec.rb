@@ -11,8 +11,10 @@ describe AudioHacker::Dsl do
     before do
       dsl.album '1st album' do
         track '1st track' do
-          start 3
-          duration 4
+          directory 2
+          file 3
+          start 4
+          duration 5
         end
       end
     end
@@ -37,8 +39,10 @@ describe AudioHacker::Dsl do
 
         it 'should have correct attributes' do
           expect(track.title).to eq('1st track')
-          expect(track.start).to eq(3)
-          expect(track.duration).to eq(4)
+          expect(track.directory).to eq(2)
+          expect(track.file).to eq(3)
+          expect(track.start).to eq(4)
+          expect(track.duration).to eq(5)
         end
       end
     end

@@ -22,12 +22,8 @@ module AudioHacker
       instance_eval(&block)
     end
 
-    def start(start)
-      @current_track.start = start
-    end
-
-    def duration(duration)
-      @current_track.duration = duration
+    [:directory, :file, :start, :duration].each do |method|
+      class_eval "def #{method}(v); @current_track.#{method} = v; end"
     end
 
     private
