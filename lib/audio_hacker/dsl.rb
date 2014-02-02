@@ -6,6 +6,10 @@ module AudioHacker
       @albums = []
     end
 
+    def self.parse(&block)
+      self.new.instance_eval(&block)
+    end
+
     def album(title = nil, &block)
       add_album(title)
 
