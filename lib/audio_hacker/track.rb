@@ -11,8 +11,13 @@ module AudioHacker
       File.join(config.output_dir, @title + File.extname(input_file))
     end
 
-    def to_transcode_option
-      "-ss #{@start.to_s} -t #{@duration.to_s}"
+    def to_ffmpeg_option
+      options = {}
+
+      options['ss'] = @start.to_s if @start
+      options['t'] = @duration.to_s if @duration
+
+      options.map { |key, value|"-#{key} #{value}" }.join(' ')
     end
   end
 end

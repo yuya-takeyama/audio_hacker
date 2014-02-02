@@ -16,7 +16,7 @@ module AudioHacker
         Dsl.load(file).albums.each do |album|
           album.tracks.each do |track|
             input_file = picker.pick(config.directory_definitions, track)
-            FFMPEG::Movie.new(input_file).transcode(track.to_output_file(config, input_file), track.to_transcode_option)
+            FFMPEG::Movie.new(input_file).transcode(track.to_output_file(config, input_file), track.to_ffmpeg_option)
           end
         end
       end
