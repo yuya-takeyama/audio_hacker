@@ -26,6 +26,8 @@ module AudioHacker
       class_eval "def #{method}(v); @current_track.#{method} = v; end"
     end
 
+    alias :dir :directory
+
     private
       def add_album(title = nil)
         new_album = Album.new

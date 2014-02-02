@@ -108,4 +108,18 @@ describe AudioHacker::Dsl do
       end
     end
   end
+
+  describe '#dir' do
+    before do
+      dsl.album '1st album' do
+        track '1st track' do
+          dir 3
+        end
+      end
+    end
+
+    it 'should be set directory (alias of #directory)' do
+      expect(dsl.albums[0].tracks[0].directory).to eq(3)
+    end
+  end
 end
