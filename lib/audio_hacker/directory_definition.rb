@@ -16,7 +16,7 @@ module AudioHacker
         files = []
 
         Dir.chdir(@path) do
-          files = Dir.glob(@pattern).map do |file|
+          files = Dir.glob(@pattern).sort.map do |file|
             File.join(@path, file)
           end
         end

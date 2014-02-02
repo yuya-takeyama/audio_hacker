@@ -11,7 +11,7 @@ module AudioHacker
       config = {}
       pattern = yml_config_hash['pattern'] if yml_config_hash['pattern']
 
-      output_dir = yml_config_hash[:output_dir] if yml_config_hash['output_dir']
+      config[:output_dir] = yml_config_hash['output_dir'] if yml_config_hash['output_dir']
 
       if yml_config_hash['input_dir']
         config[:directory_definitions] = yml_config_hash['input_dir'].map do |path|
@@ -23,7 +23,7 @@ module AudioHacker
     end
 
     def self.load_yml(file)
-      self.load(open(file))
+      self.load(YAML.load(open(file)))
     end
   end
 end

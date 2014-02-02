@@ -6,8 +6,24 @@ module AudioHacker
       @albums = []
     end
 
-    def self.parse(&block)
-      self.new.instance_eval(&block)
+    def self.load(file)
+      dsl_script = ::File.read(file)
+      dsl_script.force_encoding('utf-8')
+      dsl_script.sub!(/^__END__\n.*\Z/m, '')
+
+      self.load_from_string(dsl_script, file)
+    end
+
+    def self.load_from_string(dsl_script, file)
+      dsl = self.new
+
+      eval "dsl.parse {\n" + dsl_script + "\n}", binding, file, 0
+    end
+
+    def parse(&block)
+      instance_eval &block
+
+      self
     end
 
     def album(title = nil, &block)
