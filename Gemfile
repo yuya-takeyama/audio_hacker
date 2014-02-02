@@ -4,4 +4,4 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'guard-rspec', '~> 4.2.5'
-gem 'pry-byebug', '~> 1.2.1'
+gem 'pry-byebug', '~> 1.2.1' if RUBY_VERSION >= '2.0.0'
