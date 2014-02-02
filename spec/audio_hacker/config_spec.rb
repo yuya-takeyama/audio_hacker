@@ -8,7 +8,7 @@ describe AudioHacker::Config do
       let(:yml_config_hash) do
         {
           "pattern" => "*.m4a",
-          "dir" => [
+          "input_dir" => [
             "/path/to/dir1",
             "/path/to/dir2",
             "/path/to/dir3",
