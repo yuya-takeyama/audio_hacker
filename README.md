@@ -1,6 +1,6 @@
 # AudioHacker
 
-TODO: Write a gem description
+Hack your audio with Ruby DSL.
 
 ## Installation
 
