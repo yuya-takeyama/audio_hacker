@@ -21,5 +21,9 @@ module AudioHacker
 
       self.new(config)
     end
+
+    def self.load_yml(file)
+      self.load(open(file))
+    end
   end
 end
